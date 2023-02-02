@@ -13,9 +13,7 @@ function solveEquation(a, b, c) {
   } else if (discriminant === 0) {
     root1 = -b / (2 * a);
     arr.push(root1);
-  } else {
-    arr = [];
-  }
+  } 
   return arr;
 }
 
@@ -28,12 +26,10 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   
   if (isNaN(percent) || isNaN(contribution) || isNaN(amount) || isNaN(countMonths)) {
     return false;
-  } else {
+  } 
     let percentPerMonth = (percent / 100) / 12;
     let sumToBeReturned = amount - contribution;
     let totalPerMonth = sumToBeReturned * (percentPerMonth + (percentPerMonth / (((1 + percentPerMonth) ** countMonths) - 1)));
     let totalFull = totalPerMonth * countMonths;
     return parseFloat(totalFull.toFixed(2));
-  }
-
 }
