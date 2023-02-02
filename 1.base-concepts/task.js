@@ -20,5 +20,20 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
+
+  percent = parseInt(percent, 10);
+  contribution = parseInt(contribution, 10);
+  amount = parseInt(amount, 10);
+  countMonths = parseInt(countMonths, 10);
   
+  if (isNaN(percent) || isNaN(contribution) || isNaN(amount) || isNaN(countMonths)) {
+    return false;
+  } else {
+    let percentPerMonth = (percent / 100) / 12;
+    let sumToBeReturned = amount - contribution;
+    let totalPerMonth = sumToBeReturned * (percentPerMonth + (percentPerMonth / (((1 + percentPerMonth) ** countMonths) - 1)));
+    let totalFull = totalPerMonth * countMonths;
+    return parseFloat(totalFull.toFixed(2));
+  }
+
 }
