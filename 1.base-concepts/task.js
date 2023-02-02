@@ -21,7 +21,7 @@ function solveEquation(a, b, c) {
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 
-  percent = parseInt(percent, 10);
+  percent = parseFloat(percent, 10);
   contribution = parseInt(contribution, 10);
   amount = parseInt(amount, 10);
   countMonths = parseInt(countMonths, 10);
