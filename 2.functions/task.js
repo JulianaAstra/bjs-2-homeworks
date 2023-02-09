@@ -7,10 +7,6 @@ function getArrayParams(...arr) {
   return { min: min, max: max, avg: avg };
 }
 
-/* 
-Во всех функциях должна быть проверка наличия элементов. Если элементы не передавались в функцию, то нет смысла что-либо считать и можно сразу возвращать ноль.
-*/
-
 function summElementsWorker(...arr) {
   if (arr.length === 0) {
     return 0;
@@ -68,5 +64,15 @@ function averageEvenElementsWorker(...arr) {
 }
 
 function makeWork (arrOfArr, func) {
+  let maxWorkerResult = func(...arrOfArr[0]); 
+  console.log(maxWorkerResult);
 
+  for (let i = 0; i < arrOfArr.length; i++) {
+    let result = func(...arrOfArr[i]);
+    console.log(result);
+    if (result > maxWorkerResult) {
+      maxWorkerResult = result;
+    }
+  }
+  return maxWorkerResult;
 }
