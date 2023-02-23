@@ -1,3 +1,4 @@
+// Библиотека
 class PrintEditionItem {
     constructor (name, releaseDate, pagesCount) {
       this.name = name;
@@ -91,15 +92,36 @@ class Library {
     }
 }
 
+// Журнал успеваемости
 
+class Student {
+  constructor (name) {
+  this.name = name;
+  this.marks = {};
+  }
 
-/*Задача 2. Библиотека
+  addMark (mark, subject) {
+    if (mark >= 2 && mark <= 5) {
 
-5. Протестируйте корректность работы классов и методов, реализовав тестовый сценарий:
-   - создайте библиотеку;
-   - добавьте в библиотеку несколько печатных изданий разных типов;
-   - найдите книгу, изданную в 1919 году, или создайте её при необходимости;
-   - выдайте любую книгу;
-   - повредите выданную книгу;
-   - восстановите выданную книгу;
-   - попытайтесь добавить восстановленную книгу обратно в библиотеку. */
+      if (!this.marks.hasOwnProperty(subject)) {
+        this.marks[subject] = [];
+        this.marks[subject].push(mark);
+        
+      } else {
+        this.marks[subject].push(mark);
+      }
+    }
+  }
+
+  getAverageBySubject (subject) {
+    if (!this.marks.hasOwnProperty(subject)) {
+      return 0;
+    }
+    return this.marks[subject].reduce((acc, item, idx, arr) => acc + item / arr.length, 0);
+  }
+
+  getAverage () {
+    return Object.keys(this.marks).reduce((acc, item, idx, arr) => acc + this.getAverageBySubject(item)/arr.length, 0);
+  }
+
+}
