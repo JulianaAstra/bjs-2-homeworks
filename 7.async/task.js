@@ -24,8 +24,11 @@ class AlarmClock {
     }
 
     getCurrentFormattedTime () {
-        const date = new Date();
-        return `${date.getHours()}:${date.getMinutes()}`;
+        const date = new Date().toLocaleTimeString("ru-Ru", {
+            hour: "2-digit",
+            minute: "2-digit"
+        });
+        return `${date}`;
     }
 
     start () {
