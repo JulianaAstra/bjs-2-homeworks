@@ -48,7 +48,3 @@ function debounceDecoratorNew(func, delay) {
 
     return wrapper;
 }
-
-const sum = (a, b) => a + b;
-const debouncedSum = debounceDecoratorNew(sum, 3000);
-debouncedSum(35, 23);
